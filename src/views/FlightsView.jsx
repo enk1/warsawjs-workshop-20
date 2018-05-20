@@ -8,7 +8,7 @@ class FlightsViews extends Component {
         this.setState({
             flightsFetching: true
         });
-        const url = 'http://warsawjs-flights-api.herokuapp.com/flights';
+        const url = 'https://warsawjs-flights-api.herokuapp.com/flights';
         const fullUrl = `${url}/${departValue}/${returnValue}/${fromValue}/${toValue}`;
         const flights = await fetch(fullUrl).then(res => res.json());
         this.setState({

@@ -5,7 +5,7 @@ import styles from '../styles/SearchView.css';
 
 class SearchView extends Component {
     async componentDidMount() {
-        const url = 'http://warsawjs-flights-api.herokuapp.com/airports';
+        const url = 'https://warsawjs-flights-api.herokuapp.com/airports';
         const airports = await fetch(url).then(res => res.json());
         this.setState({
             airports
