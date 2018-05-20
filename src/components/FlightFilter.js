@@ -30,7 +30,7 @@ class FlightFilter extends Component {
                     checked={this.state.priceToggled}
                     onChange={this.onChangeCheckbox('priceToggled')}
                 />
-                <input type="number" value={this.state.priceMax} onChange={this.onChangeNumbe('priceMax')} />
+                <input type="number" value={this.state.priceMax} onChange={this.onChangeNumber('priceMax')} />
             </div>
         );
     }
