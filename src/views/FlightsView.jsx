@@ -13,12 +13,19 @@ class FlightsViews extends Component {
     constructor() {
         super();
         this.state = {
-            flights: []
+            flights: [],
+            priceMax: 700
         };
     }
 
+    changeFilterValues = values => {
+        this.setState(values);
+    };
+
     render() {
-        const flightsMapped = this.state.flights.map(flight => <Flight key={flight.id} flight={flight} />);
+        const flightsMapped = this.state.flights
+            .filter(flight => flight.price < +this.state.priceMax)
+            .map(flight => <Flight key={flight.id} flight={flight} />);
 
         return <Fragment>{flightsMapped}</Fragment>;
     }

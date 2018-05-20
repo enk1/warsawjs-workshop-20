@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
-// import { withStyles } from '@material-ui/core/styles';
-// import Grid from '@material-ui/core/Grid';
-// import Button from '@material-ui/core/Button';
+import styles from '../styles/SearchView.css';
 
 class SearchView extends Component {
     constructor(props) {
@@ -71,30 +69,30 @@ class SearchView extends Component {
     };
     render() {
         return (
-            <form className="SearchView" onSubmit={this.onSubmit}>
+            <form className={styles.form} onSubmit={this.onSubmit}>
                 <label>
-                    <strong>From</strong>
+                    <strong>From:</strong>
                     <select value={this.state.fromValue} onChange={this.onFromChange}>
                         <option value="ATL">ATL</option>
                         <option value="WAW">WAW</option>
                     </select>
                 </label>
                 <label>
-                    <strong>To</strong>
+                    <strong>To:</strong>
                     <select value={this.state.toValue} onChange={this.onToChange}>
                         <option value="ATL">ATL</option>
                         <option value="WAW">WAW</option>
                     </select>
                 </label>
                 <label>
-                    <strong>Depart</strong>
+                    <strong>Depart:</strong>
                     <input type="date" value={this.state.departValue} onChange={this.onDepartChange} />
                 </label>
                 <label>
-                    <strong>Return</strong>
+                    <strong>Return:</strong>
                     <input type="date" value={this.state.returnValue} onChange={this.onReturnChange} />
                 </label>
-                <button type="submit">Submit</button>
+                <button type="submit">Search</button>
             </form>
         );
     }
