@@ -1,5 +1,6 @@
 {
     "width": 120,
+    "printWidth":120,
     "parser": "flow",
     "singleQuote": true,
     "tabWidth": 4
