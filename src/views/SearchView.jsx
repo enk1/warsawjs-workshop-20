@@ -4,21 +4,23 @@ import PropTypes from 'prop-types';
 import styles from '../styles/SearchView.css';
 
 class SearchView extends Component {
+    async componentDidMount() {
+        const url = 'http://warsawjs-flights-api.herokuapp.com/airports';
+        const airports = await fetch(url).then(res => res.json());
+        this.setState({
+            airports
+        });
+    }
     constructor(props) {
         super(props);
         this.state = {
             fromValue: '',
             toValue: '',
             departValue: '',
-            returnValue: ''
+            returnValue: '',
+            airports: []
         };
     }
-
-    componentWillReceiveProps(props) {
-        props.value = props.value || '';
-        // Do something with props...
-    }
-    //SearchView.defaultProps = {value: ''};
 
     static propTypes = {
         onAppSubmit: PropTypes.func.isRequired
@@ -68,20 +70,23 @@ class SearchView extends Component {
         });
     };
     render() {
+        const airportsMapped = this.state.airports.map(airport => (
+            <option key={airport.id} value={airport.value}>
+                {airport.city}
+            </option>
+        ));
         return (
             <form className={styles.form} onSubmit={this.onSubmit}>
                 <label>
                     <strong>From:</strong>
                     <select value={this.state.fromValue} onChange={this.onFromChange}>
-                        <option value="ATL">ATL</option>
-                        <option value="WAW">WAW</option>
+                        {airportsMapped}
                     </select>
                 </label>
                 <label>
                     <strong>To:</strong>
                     <select value={this.state.toValue} onChange={this.onToChange}>
-                        <option value="ATL">ATL</option>
-                        <option value="WAW">WAW</option>
+                        {airportsMapped}
                     </select>
                 </label>
                 <label>
