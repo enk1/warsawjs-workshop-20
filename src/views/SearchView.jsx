@@ -9,15 +9,14 @@ class SearchView extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            fromValue: 'ATL',
-            toValue: 'WAW',
+            fromValue: '',
+            toValue: '',
             departValue: '',
             returnValue: ''
         };
     }
-
     static propTypes = {
-        onAppSubmit: PropTypes.isRequired.func
+        onAppSubmit: PropTypes.func.isRequired
     };
 
     onToChange = e => {
@@ -51,6 +50,10 @@ class SearchView extends Component {
             console.error('blank inputs');
             return;
         }
+        if (this.state.departValue === this.state.returnValue) {
+            console.error('Departure airport must be different from return airport');
+            return;
+        }
         if (new Date(this.state.returnValue) - new Date(this.state.departValue) < 0) {
             console.error('wrong dates');
             return;
@@ -61,7 +64,7 @@ class SearchView extends Component {
     };
     render() {
         return (
-            <form className="searchContainer" onSubmit={this.onSubmit}>
+            <form className="SearchView" onSubmit={this.onSubmit}>
                 <label>
                     <strong>From</strong>
                     <select value={this.state.fromValue} onChange={this.onFromChange}>
