@@ -1,0 +1,6 @@
+{
+    "width": 120,
+    "parser": "flow",
+    "singleQuote": true,
+    "tabWidth": 4
+  }
