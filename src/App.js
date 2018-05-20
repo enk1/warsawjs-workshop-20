@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './App.css';
 import SearchView from './views/SearchView';
 import FlightsViews from './views/FlightsView';
@@ -20,13 +20,13 @@ class App extends Component {
 
     render() {
         return (
-            <div className="container">
+            <Fragment>
                 {this.state.view === 'search' ? (
                     <SearchView onAppSubmit={this.onSearchSubmit} />
                 ) : (
                     <FlightsViews flightData={this.state.flightData} />
                 )}
-            </div>
+            </Fragment>
         );
     }
 }

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import styles from '../styles/Flight.css';
 
 const Flight = ({ flight }) => (
-    <React.Fragment>
+    <div className={styles.flight}>
         <div>
             <p>{flight.price}$</p>
             <p>{flight.outboundPath[0].airportFrom}</p>
@@ -11,7 +12,6 @@ const Flight = ({ flight }) => (
             <p>{flight.inboundPath[0].airportFrom}</p>
             <p>{flight.inboundPath[flight.inboundPath.length - 1].airportTo}</p>
         </div>
-        <hr />
-    </React.Fragment>
+    </div>
 );
 export default Flight;

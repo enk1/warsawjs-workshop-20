@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Flight from '../components/Flight';
 
 class FlightsViews extends Component {
@@ -20,7 +20,7 @@ class FlightsViews extends Component {
     render() {
         const flightsMapped = this.state.flights.map(flight => <Flight key={flight.id} flight={flight} />);
 
-        return <div className="FlightsViews">{flightsMapped}</div>;
+        return <Fragment>{flightsMapped}</Fragment>;
     }
 }
 
