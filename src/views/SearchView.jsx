@@ -15,6 +15,13 @@ class SearchView extends Component {
             returnValue: ''
         };
     }
+
+    componentWillReceiveProps(props) {
+        props.value = props.value || '';
+        // Do something with props...
+    }
+    //SearchView.defaultProps = {value: ''};
+
     static propTypes = {
         onAppSubmit: PropTypes.func.isRequired
     };

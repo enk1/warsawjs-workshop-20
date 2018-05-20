@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Flight from '../components/Flight';
 
 class FlightsViews extends Component {
     async componentDidMount() {
@@ -17,7 +18,9 @@ class FlightsViews extends Component {
     }
 
     render() {
-        return <div className="FlightsViews">{JSON.stringify(this.state.flights)}</div>;
+        const flightsMapped = this.state.flights.map(flight => <Flight key={flight.id} flight={flight} />);
+
+        return <div className="FlightsViews">{flightsMapped}</div>;
     }
 }
 
